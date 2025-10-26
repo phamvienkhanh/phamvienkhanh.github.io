@@ -4,13 +4,8 @@ permissions:
   contents: read
 
 on:
-  pull_request:
-    types:
-      - opened
-      - edited
-      - synchronize
-      - reopened
-  workflow_call:
+  push:
+    branches: [ master ]
 
 jobs:
   build:
@@ -48,3 +43,9 @@ jobs:
 
       - name: "🚀 Build the project"
         run: pnpm run build
+      
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
