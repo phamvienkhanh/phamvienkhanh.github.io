@@ -1,7 +1,7 @@
 export const SITE = {
-  website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
-  author: "Sat Naing",
-  profile: "https://satnaing.dev/",
+  website: "https://phamvienkhanh.github.io", // replace this with your deployed domain
+  author: "Pham Vien Khanh",
+  profile: "",
   desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
   title: "Pham Vien Khanh",
   ogImage: "astropaper-og.jpg",
@@ -12,9 +12,9 @@ export const SITE = {
   showArchives: true,
   showBackButton: true, // show back button in post detail
   editPost: {
-    enabled: true,
-    text: "Edit page",
-    url: "https://github.com/satnaing/astro-paper/edit/main/",
+    enabled: false,
+    text: "",
+    url: "",
   },
   dynamicOgImage: true,
   dir: "ltr", // "rtl" | "auto"

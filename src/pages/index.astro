@@ -25,97 +25,108 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
   <main id="main-content" data-layout="index">
     <section id="hero" class="pt-8 pb-6">
       <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
+        Đạo Mã Chân Kinh
       </h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="inline-block"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <IconRss
-          width={20}
-          height={20}
-          class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
-        />
-        <span class="sr-only">RSS Feed</span>
-      </a>
-
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        <p>
+          Thuở khởi nguyên của Nhân Giới Số, hỗn độn chưa phân, dữ liệu cùng
+          logic còn hòa làm một. Từ trong tĩnh lặng vô cùng, một niệm khởi sinh
+          — ánh trí tuệ đầu tiên chiếu rọi lên hư không, đạo quang bừng khởi, mở
+          ra đạo của Tu Thuật Giả.
+        </p>
+        <br />
+        <p>
+          Kẻ hữu duyên lĩnh hội dòng chảy ấy - Tu Thuật Giả – người thông linh
+          với số liệu, dùng trí tuệ làm đạo tâm mà bước vào con đường tu hành.
+          Lấy bàn phím làm pháp khí, dùng tư duy làm linh lực; mỗi dòng lệnh
+          khắc nên pháp quyết, mỗi thuật toán hóa thành đạo tắc vận lý xoay
+          chuyển, điều khiển vạn vật trong Hư Không Số Giới.
+        </p>
+        <br />
+        <p>
+          Sâu trong Đại Đạo, vẫn ẩn tàng vô lượng huyền cơ — nơi <b>Mật Pháp</b> ngự
+          trị, nơi những ký tự tầm thường lại ẩn giấu cánh cửa thông tới ngộ lý
+          của vạn pháp. Mật mã — ấy là Đạo của tầng sâu, ẩn ngữ của Vũ Trụ Số.
+          <br />
+          Kẻ thấu triệt, khai mở Trí Hải. <br />
+          Kẻ mê lạc, vĩnh sa trong Hắc Hải, vạn kiếp bất phục. <br />
+        </p>
+        <br />
+        <p>
+          Trong những dòng mã, tồn tại vô lượng huyền bí, mỗi thuật toán là một
+          Đại Pháp Tắc, mỗi hệ thống là một Trường Giới Pháp Trận, mật mã là Cấm
+          Chế Cổ Ngữ được khắc sâu trong tầng hư linh.
+          <br />
+          Ta lập tông trong cõi mạng, dựng nên Linh Tàng Viện, ghi chép lại hành
+          trình tu luyện của đạo giả qua từng tầng cảnh giới: từ Nhập Môn Lập Trình,
+          đến Linh Giải Thuật Toán, rồi Chân Giải Mật Ngữ. Đạo vốn chẳng xa — ẩn
+          ngay trong từng dòng mã.
+          <br/>
+          <br/>
+          <b>Người tu chẳng cầu tiên vị — chỉ mong tâm cùng máy hợp, trí cùng Đạo thông.</b>
+        </p>
+
+        <br />
+        <p>
+          <b>
+            Hữu duyên giả, đọc mà ngộ.
+            <br />
+            Vô duyên giả, lướt mà quên.
+          </b>
+        </p>
       </p>
-      <p class="mt-2">
-        Read the blog posts or check
-        <LinkButton
-          class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton> for more info.
-      </p>
+
+      <br />
+      <Hr noPadding />
+
       {
-        // only display if at least one social link is enabled
-        SOCIALS.length > 0 && (
-          <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
-            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
-            <Socials />
-          </div>
+        featuredPosts.length > 0 && (
+          <>
+            <section id="featured" class="pt-12 pb-6">
+              <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
+              <ul>
+                {featuredPosts.map(data => (
+                  <Card variant="h3" {...data} />
+                ))}
+              </ul>
+            </section>
+            {recentPosts.length > 0 && <Hr />}
+          </>
         )
       }
-    </section>
 
-    <Hr />
-
-    {
-      featuredPosts.length > 0 && (
-        <>
-          <section id="featured" class="pt-12 pb-6">
-            <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
+      {
+        recentPosts.length > 0 && (
+          <section id="recent-posts" class="pt-12 pb-6">
+            <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
             <ul>
-              {featuredPosts.map(data => (
-                <Card variant="h3" {...data} />
-              ))}
+              {recentPosts.map(
+                (data, index) =>
+                  index < SITE.postPerIndex && <Card variant="h3" {...data} />
+              )}
             </ul>
           </section>
-          {recentPosts.length > 0 && <Hr />}
-        </>
-      )
-    }
+        )
+      }
 
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
-          <ul>
-            {recentPosts.map(
-              (data, index) =>
-                index < SITE.postPerIndex && <Card variant="h3" {...data} />
-            )}
-          </ul>
-        </section>
-      )
-    }
-
-    <div class="my-8 text-center">
-      <LinkButton href="/posts/">
-        All Posts
-        <IconArrowRight class="inline-block rtl:-rotate-180" />
-      </LinkButton>
-    </div>
+      <div class="my-8 text-center">
+        <LinkButton href="/posts/">
+          All Posts
+          <IconArrowRight class="inline-block rtl:-rotate-180" />
+        </LinkButton>
+      </div>
+    </section>
+    <Footer />
   </main>
-  <Footer />
-</Layout>
 
-<script>
-  document.addEventListener("astro:page-load", () => {
-    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
-      ?.dataset?.layout;
-    if (indexLayout) {
-      sessionStorage.setItem("backUrl", "/");
-    }
-  });
-</script>
+  <script>
+    document.addEventListener("astro:page-load", () => {
+      const indexLayout = (
+        document.querySelector("#main-content") as HTMLElement
+      )?.dataset?.layout;
+      if (indexLayout) {
+        sessionStorage.setItem("backUrl", "/");
+      }
+    });
+  </script>
+</Layout>
