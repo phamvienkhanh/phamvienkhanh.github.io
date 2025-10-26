@@ -5,7 +5,7 @@ permissions:
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
@@ -43,7 +43,7 @@ jobs:
 
       - name: "🚀 Build the project"
         run: pnpm run build
-      
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
